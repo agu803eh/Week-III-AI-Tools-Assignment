@@ -1,0 +1,43 @@
+1. Ethical Considerations
+Identify potential biases in your MNIST or Amazon Reviews model. How could tools like TensorFlow Fairness Indicators or spaCy’s rule-based systems mitigate these biases?
+Answer:
+
+Potential biases in the MNIST model may include uneven representation of certain digits, leading to lower accuracy for underrepresented classes. In Amazon Reviews models, biases can arise from imbalanced sentiment classes, demographic representation, or language use, potentially resulting in unfair predictions for certain groups.
+
+TensorFlow Fairness Indicators can help by providing metrics and visualizations to detect and quantify disparities in model performance across different subgroups (e.g., gender, age, or sentiment categories). This enables targeted interventions, such as rebalancing data or adjusting thresholds, to improve fairness.
+
+spaCy’s rule-based systems can be used to identify and mitigate biased language or patterns in text data before training, ensuring that the model is less likely to learn and propagate these biases. For example, custom rules can flag or modify biased terms, helping to create a more equitable dataset and model.
+
+2. Troubleshooting Challenge
+Buggy Code: A provided TensorFlow script has errors (e.g., dimension mismatches, incorrect loss functions). Debug and fix the code.
+
+Fixed Code Example (for MNIST classification):
+
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+# Load data
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+x_train = x_train.reshape(-1, 28, 28, 1).astype("float32") / 255.0
+x_test = x_test.reshape(-1, 28, 28, 1).astype("float32") / 255.0
+
+# Build model
+model = models.Sequential([
+	layers.Input(shape=(28, 28, 1)),
+	layers.Conv2D(32, 3, activation='relu'),
+	layers.MaxPooling2D(),
+	layers.Flatten(),
+	layers.Dense(128, activation='relu'),
+	layers.Dense(10, activation='softmax')
+])
+
+# Compile with correct loss function for integer labels
+model.compile(optimizer='adam',
+			  loss='sparse_categorical_crossentropy',
+			  metrics=['accuracy'])
+
+# Train
+model.fit(x_train, y_train, epochs=5, batch_size=32, validation_split=0.1)
+
+# Evaluate
+model.evaluate(x_test, y_test)

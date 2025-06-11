@@ -1,0 +1,50 @@
+Q1: Explain the primary differences between TensorFlow and PyTorch. When would you choose one over the other?
+Answer:
+TensorFlow and PyTorch are both popular deep learning frameworks, but they differ in several key aspects:
+
+1. Programming Style:
+    - TensorFlow uses static computation graphs (define-and-run), which require you to define the entire computation graph before running it.
+    - PyTorch uses dynamic computation graphs (define-by-run), allowing you to build and modify the graph on the fly during execution.
+
+2. Debugging:
+    - PyTorch's dynamic nature makes debugging with standard Python tools easier.
+    - TensorFlow's static graphs can make debugging more challenging, though TensorFlow 2.x has improved this with eager execution.
+
+3. Community and Ecosystem:
+    - TensorFlow has a larger ecosystem for production deployment (TensorFlow Serving, TensorFlow Lite, TensorFlow.js).
+    - PyTorch is widely adopted in research due to its flexibility and ease of use.
+
+4. Deployment:
+    - TensorFlow is often preferred for deploying models in production environments.
+    - PyTorch is commonly used for rapid prototyping and research.
+
+Choose TensorFlow if you need robust production tools, cross-platform deployment, or integration with TensorFlow-specific libraries. Choose PyTorch if you prioritize ease of use, flexibility, and fast experimentation, especially in research settings.
+
+Q2: Describe two use cases for Jupyter Notebooks in AI development.
+Answer:
+1. Interactive Data Exploration and Visualization:
+    - Jupyter Notebooks allow data scientists to load, clean, and visualize datasets interactively. This helps in understanding data distributions, identifying patterns, and performing exploratory data analysis (EDA) using libraries like pandas, matplotlib, and seaborn.
+
+2. Prototyping and Experimentation with Machine Learning Models:
+    - Researchers and developers use Jupyter Notebooks to quickly prototype machine learning models, test different algorithms, and tune hyperparameters. The notebook format supports incremental code execution and immediate feedback, making it ideal for iterative experimentation.
+
+Q3: Comparative analysis
+Compare Scikit-learn and TensorFlow in terms of:
+
+Target applications (e.g., classical ML vs. deep learning).
+
+Ease of use for beginners.
+
+Community support.
+Answer:
+1. Target Applications:
+    - Scikit-learn is primarily designed for classical machine learning algorithms such as regression, classification, clustering, and dimensionality reduction. It does not natively support deep learning.
+    - TensorFlow is focused on deep learning and neural networks, enabling the development of complex models for tasks like image recognition, natural language processing, and more.
+
+2. Ease of Use for Beginners:
+    - Scikit-learn is known for its simple and consistent API, making it very accessible for beginners. Its documentation and examples are beginner-friendly.
+    - TensorFlow, especially prior to version 2.x, had a steeper learning curve due to its complexity. TensorFlow 2.x has improved usability, but deep learning concepts are inherently more complex than classical ML.
+
+3. Community Support:
+    - Scikit-learn has a strong and active community, especially among those working with traditional machine learning.
+    - TensorFlow has a larger global community, extensive resources, and is widely used in both academia and industry, particularly for deep learning applications.
